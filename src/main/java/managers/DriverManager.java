@@ -3,12 +3,15 @@ package managers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import project.properties.TestProperties;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class DriverManager {
     private WebDriver driver;
     private static DriverManager INSTANCE = null;
+    private Properties properties = TestProperties.getInstance().getProperties();
 
     private DriverManager() {
     }
@@ -29,8 +32,7 @@ public class DriverManager {
 
 
     private void initDriver() {
-
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/webdriver/chromedriver.exe");
+        System.setProperty(properties.getProperty("WEB_DRIVER"), properties.getProperty("WEB_DRIVER_PATH"));
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("ignore-certificate-errors");
         chromeOptions.addArguments("--ignore-ssl-errors=yes");

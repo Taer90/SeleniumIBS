@@ -7,17 +7,22 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import project.properties.TestProperties;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Properties;
+
+import static managers.DriverManager.getInstance;
 
 public class BaseTests {
-    private static DriverManager driverManager = DriverManager.getInstance();
+    private static DriverManager driverManager = getInstance();
     protected PageManager pageManager = PageManager.getInstance();
+    private Properties properties = TestProperties.getInstance().getProperties();
 
     @Before
     public void before() {
-        String baseUrl = "https://training.appline.ru/user/login";
+        String baseUrl = properties.getProperty("HOSTNAME");
         driverManager.getDriver().get(baseUrl);
     }
 

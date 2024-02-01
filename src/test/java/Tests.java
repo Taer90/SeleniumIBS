@@ -1,16 +1,18 @@
 import base.BaseTests;
 import org.junit.Test;
 import org.junit.jupiter.api.Tag;
+import project.properties.TestProperties;
 
-import static data.LoginForm.CORRECT_LOGIN;
-import static data.LoginForm.CORRECT_PASSWORD;
+import java.util.Properties;
 
 public class Tests extends BaseTests {
+    private Properties properties = TestProperties.getInstance().getProperties();
+
     @Test
     @Tag("1")
-    public void wrongEmail() {
+    public void fillTripRequest() {
         pageManager.getLoginPage()
-                .successLogin(CORRECT_LOGIN.toString(), CORRECT_PASSWORD.toString())
+                .successLogin(properties.getProperty("LOGIN"), properties.getProperty("PASSWORD"))
                 .checkTitle()
                 .goToBusinessTrips()
                 .goToCreateTripPage()
