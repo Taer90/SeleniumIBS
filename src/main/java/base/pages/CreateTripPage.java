@@ -1,5 +1,6 @@
 package base.pages;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -35,7 +36,7 @@ public class CreateTripPage extends BasePage {
     private WebElement employeesListError;
     @FindBy(xpath = "//html")
     private WebElement blankArea;
-
+    @Step
     public CreateTripPage fillNotAllFields() {
         selectFromList(subdivisionList, subdivisionAdministration);
         openOrganizationListButton.click();

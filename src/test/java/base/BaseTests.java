@@ -28,7 +28,7 @@ public class BaseTests {
 
     @AfterClass
     public static void after() throws IOException {
-        var sourceFile = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
+        File sourceFile = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(sourceFile, new File("D:\\Download\\Обучение\\IBS\\Selenium — применение в автоматизированном тестировании\\screenshot.png"));
         driverManager.getDriver().quit();
     }
