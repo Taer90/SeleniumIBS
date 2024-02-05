@@ -2,7 +2,7 @@ package base;
 
 import managers.DriverManager;
 import managers.PageManager;
-//import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FileUtils;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.openqa.selenium.OutputType;
@@ -29,7 +29,7 @@ public class BaseTests {
     @AfterClass
     public static void after() throws IOException {
         File sourceFile = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
-        //FileUtils.copyFile(sourceFile, new File("D:\\Download\\Обучение\\IBS\\Selenium — применение в автоматизированном тестировании\\screenshot.png"));
+        FileUtils.copyFile(sourceFile, new File("D:\\Download\\Обучение\\IBS\\Selenium — применение в автоматизированном тестировании\\screenshot.png"));
         driverManager.getDriver().quit();
     }
 

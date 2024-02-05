@@ -17,8 +17,7 @@ public class BasePage {
     protected DriverManager driverManager = DriverManager.getInstance();
     protected PageManager pageManager = PageManager.getInstance();
 
-   // WebDriverWait wait = new WebDriverWait(DriverManager.getInstance().getDriver(), Duration.ofSeconds(10));
-   WebDriverWait wait = new WebDriverWait(DriverManager.getInstance().getDriver(), 10, 1000);
+    WebDriverWait wait = new WebDriverWait(DriverManager.getInstance().getDriver(), Duration.ofSeconds(10));
 
 
 
