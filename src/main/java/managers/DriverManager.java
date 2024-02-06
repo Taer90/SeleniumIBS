@@ -39,6 +39,7 @@ public class DriverManager {
         chromeOptions.addArguments("--ignore-ssl-errors=yes");
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
+        driver.get("https://training.appline.ru/user/login");
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
