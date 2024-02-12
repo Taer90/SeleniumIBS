@@ -4,6 +4,7 @@ import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CreateTripPage extends BasePage {
     @FindBy(xpath = "//select[@name='crm_business_trip[businessUnit]']")
@@ -36,6 +37,7 @@ public class CreateTripPage extends BasePage {
     private WebElement employeesListError;
     @FindBy(xpath = "//html")
     private WebElement blankArea;
+
     @Step
     public CreateTripPage fillNotAllFields() {
         selectFromList(subdivisionList, subdivisionAdministration);
@@ -49,6 +51,12 @@ public class CreateTripPage extends BasePage {
         fillInputField(arrivalDateField, "24.12.2024");
         blankArea.click();
         saveAndCloseButton.click();
+        return pageManager.getCreateTripPage();
+    }
+
+    @Step
+    public CreateTripPage checkError() {
+        wait.until(ExpectedConditions.visibilityOf(employeesListError));
         Assert.assertTrue(employeesListError.isDisplayed());
         return pageManager.getCreateTripPage();
     }

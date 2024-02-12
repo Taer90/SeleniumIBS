@@ -1,21 +1,9 @@
 package base.steps;
 
 import io.cucumber.java.After;
-
-import io.cucumber.java.Scenario;
-import managers.PageManager;
-import org.apache.commons.io.FileUtils;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 import managers.DriverManager;
-import project.properties.TestProperties;
-
-import java.io.File;
-import java.io.IOException;
-import java.util.Properties;
+import managers.PageManager;
+import org.junit.Before;
 
 import static managers.DriverManager.getInstance;
 
